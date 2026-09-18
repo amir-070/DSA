@@ -22,12 +22,9 @@ public:
 
         while(j<nums2.size()) nv.push_back(nums2[j++]);
 
-        double  val;
 
-        if(ts %2 != 0) val = nv[(ts/2)];
+        if(ts %2 != 0) return double(nv[(ts/2)]);
 
-        else val = double(nv[(ts/2)-1]+nv[(ts/2)])/2;
-
-        return val;
+        else return double(nv[(ts/2)-1]+nv[(ts/2)])/2;
     }
 };
