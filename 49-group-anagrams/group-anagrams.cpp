@@ -43,36 +43,30 @@ public:
         //     ans.push_back(group);
         //  }
         //  return ans;
-          unordered_map<string, vector<string>> mp;
+          unordered_map<string, vector<string>> ans;
 
-        for(string& s:strs)    
-        {
+        for (string& s : strs) {
             int count[26] = {0};
 
-            for(char& c:s)
-            {
-                count[c-'a']++;
+            // Count frequency of each letter in the string
+            for (char c : s) {
+                count[c - 'a']++;
             }
 
             string key;
-
-            for(int num : count)
-            {
-                key += to_string(num)+ ",";
+            for (int num : count) {
+                key += to_string(num) + "#";
             }
 
-            mp[key].push_back(s);
-        }  
-
-        vector<vector<string>> ans;
-
-        for(auto& gp:mp)
-        {
-            ans.push_back(gp.second);
+            ans[key].push_back(s);
         }
 
-        return ans;
+        vector<vector<string>> result;
+        for (auto& group : ans) {
+            result.push_back(move(group.second));
+        }
 
+        return result;        
     }
     
 };
