@@ -3,14 +3,12 @@ class NumArray {
 public:
     NumArray(vector<int>& nums) {
 
-        for(auto n:nums)
+        for(int i=1;i<nums.size();i++)
         {
-            vt.push_back(n);
+            nums[i] += nums[i-1];
         }
-        for(int i=1;i<vt.size();i++)
-        {
-            vt[i] += vt[i-1];
-        }
+
+        vt = move(nums);
     }
     
     int sumRange(int left, int right) {
