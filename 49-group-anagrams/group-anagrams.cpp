@@ -26,47 +26,47 @@ public:
 
 
          // tc = O(n * k log k);
-        // unordered_map<string, vector<string>> mp;
+        unordered_map<string, vector<string>> mp;
 
-        // for(auto str : strs)
-        // {
-        //     string key = str;
-        //     sort(key.begin(),key.end());
+        for(auto str : strs)
+        {
+            string key = str;
+            sort(key.begin(),key.end());
 
-        //     mp[key].push_back(str);
-        // }
+            mp[key].push_back(str);
+        }
       
-        //  vector<vector<string>> ans;
+         vector<vector<string>> ans;
 
-        //  for(auto& [_,group]: mp)
-        //  {
-        //     ans.push_back(group);
-        //  }
-        //  return ans;
-          unordered_map<string, vector<string>> ans;
+         for(auto& [_,group]: mp)
+         {
+            ans.push_back(group);
+         }
+         return ans;
+    //       unordered_map<string, vector<string>> ans;
 
-        for (string& s : strs) {
-            int count[26] = {0};
+    //     for (string& s : strs) {
+    //         int count[26] = {0};
 
-            // Count frequency of each letter in the string
-            for (char c : s) {
-                count[c - 'a']++;
-            }
+    //         // Count frequency of each letter in the string
+    //         for (char c : s) {
+    //             count[c - 'a']++;
+    //         }
 
-            string key;
-            for (int num : count) {
-                key += to_string(num) + "#";
-            }
+    //         string key;
+    //         for (int num : count) {
+    //             key += to_string(num) + "#";
+    //         }
 
-            ans[key].push_back(s);
-        }
+    //         ans[key].push_back(s);
+    //     }
 
-        vector<vector<string>> result;
-        for (auto& group : ans) {
-            result.push_back(move(group.second));
-        }
+    //     vector<vector<string>> result;
+    //     for (auto& group : ans) {
+    //         result.push_back(move(group.second));
+    //     }
 
-        return result;        
+    //     return result;        
     }
     
 };
