@@ -26,22 +26,53 @@ public:
 
 
          // tc = O(n * k log k);
-        unordered_map<string, vector<string>> mp;
+        // unordered_map<string, vector<string>> mp;
 
-        for(auto str : strs)
-        {
-            string key = str;
-            sort(key.begin(),key.end());
+        // for(auto str : strs)
+        // {
+        //     string key = str;
+        //     sort(key.begin(),key.end());
 
-            mp[key].push_back(str);
-        }
+        //     mp[key].push_back(str);
+        // }
       
-         vector<vector<string>> ans;
+        //  vector<vector<string>> ans;
 
-         for(auto& [_,group]: mp)
-         {
-            ans.push_back(group);
-         }
-         return ans;
+        //  for(auto& [_,group]: mp)
+        //  {
+        //     ans.push_back(group);
+        //  }
+        //  return ans;
+          unordered_map<string, vector<string>> mp;
+
+        for(string& s:strs)    
+        {
+            int count[26] = {0};
+
+            for(char& c:s)
+            {
+                count[c-'a']++;
+            }
+
+            string key;
+
+            for(int num : count)
+            {
+                key += to_string(num)+ ",";
+            }
+
+            mp[key].push_back(s);
+        }  
+
+        vector<vector<string>> ans;
+
+        for(auto& gp:mp)
+        {
+            ans.push_back(gp.second);
+        }
+
+        return ans;
+
     }
+    
 };
