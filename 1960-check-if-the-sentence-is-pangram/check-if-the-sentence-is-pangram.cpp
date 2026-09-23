@@ -1,6 +1,7 @@
 class Solution {
 public:
     bool checkIfPangram(string s) {
+        if(s.length() < 26) return false;
         
         vector<int> v(26,0);
         for(int i=0;i<s.size();i++)
