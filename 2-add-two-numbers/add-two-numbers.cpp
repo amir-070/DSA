@@ -43,7 +43,7 @@ public:
             temp->next = nn;
             temp = temp->next;
         }
-        else if(digit>9)
+        else
         {
             ListNode* nn = new ListNode(digit%10);
             digit /= 10;
@@ -62,7 +62,7 @@ public:
             temp->next = nn;
             temp = temp->next;
         }
-        else if(digit>9)
+        else
         {
             ListNode* nn = new ListNode(digit%10);
             digit /= 10;
@@ -81,7 +81,7 @@ public:
             temp->next = nn;
             temp = temp->next;
         }
-        else if(digit>9)
+        else
         {
             ListNode* nn = new ListNode(digit%10);
             digit /= 10;
