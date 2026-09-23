@@ -86,33 +86,28 @@ public:
         //  return fn->next;
         // =====================================
 
-         int carry = 0;
+        int carry = 0;
         int sum = 0;
         ListNode* dummy = new ListNode(0);
         ListNode* list = dummy;
     
-        while(l1 || l2 || carry != 0){
+        while(l1 != nullptr || l2 != nullptr || carry != 0){
             sum = 0;
-
-            if(l1)
-            {
+            if(l1 != nullptr){
                 sum += l1->val;
                 l1 = l1->next;
             }
-            if(l2)
-            {
+
+            if(l2 != nullptr){
                 sum += l2->val;
                 l2 = l2->next;
             }
 
-            ListNode* nn = new ListNode((sum+carry)%10);
-            list->next = nn;
+            list->next = new ListNode((sum+carry) % 10);
             list = list->next;
-
-            carry = (sum+carry)/10;
+            carry = (sum+carry) / 10;
         }
+
         return dummy->next; 
-
-
     }
 };
