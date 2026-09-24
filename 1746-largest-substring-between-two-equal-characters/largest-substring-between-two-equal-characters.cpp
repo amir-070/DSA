@@ -20,10 +20,11 @@ public:
 
         int m_len = -1;
         for (int i = 0; i < s.size(); i++) {
-            if (pos[s[i] - 'a'] == -1)
-                pos[s[i] - 'a'] = i;
-            else
+            if (pos[s[i] - 'a'] != -1)
                 m_len = max(m_len, i - pos[s[i] - 'a'] - 1);
+            else
+                pos[s[i] - 'a'] = i;
+                
         }
 
         return m_len;
