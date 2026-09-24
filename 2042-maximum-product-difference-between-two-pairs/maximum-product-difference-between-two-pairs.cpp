@@ -2,9 +2,9 @@ class Solution {
 public:
     int maxProductDifference(vector<int>& nums) {
 
-        int max = 0, secmax = 0, min = 10001, secmin = 10001;
+        int max = 0, secmax = 0, min = 10001, secmin = 10001,n=nums.size();
 
-        for (int i = 0; i < nums.size(); i++) {
+        for (int i = 0; i < n; i++) {
             if (nums[i] < min) {
                 secmin = min;
                 min = nums[i];
