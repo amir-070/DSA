@@ -16,14 +16,14 @@ public:
         // }
         // return str;
 
-
-        vector<int> pos(26,-1);
+        vector<int> pos(26, -1);
 
         int m_len = -1;
-        for(int i=0;i<s.size();i++)
-        {
-            if(pos[s[i] - 'a'] == -1) pos[s[i] - 'a'] = i;
-            else m_len = max(m_len,i-pos[s[i] - 'a']-1);
+        for (int i = 0; i < s.size(); i++) {
+            if (pos[s[i] - 'a'] == -1)
+                pos[s[i] - 'a'] = i;
+            else
+                m_len = max(m_len, i - pos[s[i] - 'a'] - 1);
         }
 
         return m_len;
