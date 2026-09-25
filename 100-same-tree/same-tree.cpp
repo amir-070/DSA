@@ -14,18 +14,10 @@ public:
             else
                 return false;
         }
-        if (p->val != q->val)
-            return false;
-        if ((p->left == nullptr) && (q->left != nullptr))
-            return false;
-        if ((p->left != nullptr) && (q->left == nullptr))
-            return false;
-        if ((p->right == nullptr) && (q->right != nullptr))
-            return false;
-        if ((p->right != nullptr) && (q->right == nullptr))
-            return false;
+        if (p->val != q->val) return false;
+        if (((p->left == nullptr) && (q->left != nullptr))&&((p->left != nullptr) && (q->left == nullptr))&&((p->right == nullptr) && (q->right != nullptr))&&((p->right != nullptr) && (q->right == nullptr))) return false;
 
 
-        return isSameTree(p->left, q->left)&isSameTree(p->right, q->right);;
+        return isSameTree(p->left,q->left)&isSameTree(p->right,q->right);
     }
 };
