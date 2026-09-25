@@ -5,7 +5,7 @@ public:
 
         if (!p && !q)
             return true;
-        if (!p | !q)
+        if (!p || !q)
             return false;
 
         if ((!p->left && !p->right) && (!q->left && !q->right)) {
