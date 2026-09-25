@@ -2,35 +2,27 @@ class Solution {
 public:
     int thirdMax(vector<int>& nums) {
 
+        long long max1 = LLONG_MIN, max2 = LLONG_MIN, max3 = LLONG_MIN;
 
-        if(nums.size() == 1) return nums[0];
-        if(nums.size() == 2) return max(nums[0],nums[1]);
+        for (auto i : nums) {
+            if (i > max1) {
+                max3 = max2;
+                max2 = max1;
+                max1 = i;
+            }
 
-       long long max1 = LLONG_MIN ,max2 = LLONG_MIN ,max3 = LLONG_MIN;
+            else if (i > max2 and i != max1) {
+                max3 = max2;
+                max2 = i;
+            }
 
-       for(int i=0;i<nums.size();i++)
-       {
-        if(nums[i]>max1)
-        {
-            max3 = max2;
-            max2 = max1;
-            max1 = nums[i];
+            else if (i > max3 and i != max2 and i != max1)
+                max3 = i;
         }
-        else if(nums[i]>max2 and nums[i] != max1)
-        {
-            max3 = max2;
-            max2 = nums[i];
-        }
-        else if(nums[i]>max3 and nums[i] != max2 and nums[i] != max1)
-        {
-            max3 = nums[i];
-        }
-        
-       }
 
+        if (max3 == LLONG_MIN)
+            return max1;
 
-       if(max3 == LLONG_MIN) return max1;
-
-       return max3;
+        return max3;
     }
 };
