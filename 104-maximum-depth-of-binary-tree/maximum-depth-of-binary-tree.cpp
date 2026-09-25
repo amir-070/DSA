@@ -2,17 +2,15 @@
 class Solution {
 
 public:
-    int helper(TreeNode* root,int maxd)
+    int helper(TreeNode* root,int maxdepth)
     {
-        if(!root->left && !root->right) 
-        {
-            return maxd;
-        }
-        int maxdep1 = 0,maxdep2 = 0;
-        if(root->left) maxdep1 = helper(root->left,maxd+1);
-        if(root->right) maxdep2 = helper(root->right,maxd+1);
+        if(!root->left && !root->right) return maxdepth;
 
-        return max(maxdep1,maxdep2);
+        int depth1 = 0,depth2 = 0;
+        if(root->left) depth1 = helper(root->left,maxdepth+1);
+        if(root->right) depth2 = helper(root->right,maxdepth+1);
+
+        return max(depth1,depth2);
     }
     int maxDepth(TreeNode* root) {
         if(!root) return 0;
