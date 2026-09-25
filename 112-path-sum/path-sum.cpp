@@ -19,10 +19,10 @@ public:
             if(target == 0) return true;
             return false;
         }
-        bool is1,is2;
-        if(root->left)is1 = hasPathSum(root->left,target-root->val);
-        if(root->right)is2 = hasPathSum(root->right,target-root->val);
+        bool istrue;
+        if(root->left)istrue = hasPathSum(root->left,target-root->val);
+        if(root->right)istrue = istrue|hasPathSum(root->right,target-root->val);
         
-        return is1|is2;
+        return istrue;
     }
 };
