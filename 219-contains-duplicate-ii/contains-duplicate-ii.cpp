@@ -6,12 +6,11 @@ public:
 
         for(int i = 0;i<nums.size();i++)
         {
-            if(mp.find(nums[i]) != mp.end())
+            auto itr = mp.find(nums[i]);
+
+            if(itr != mp.end())
             {
-                auto itr = mp.find(nums[i]);
-
                 if(abs(itr->second - i) <= k) return true;
-
             }
                 mp[nums[i]] =  i;
         }
