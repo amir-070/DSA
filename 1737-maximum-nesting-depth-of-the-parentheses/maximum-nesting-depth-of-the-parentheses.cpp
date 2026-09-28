@@ -6,12 +6,15 @@ public:
 
         for(int i =0;i<s.length();i++)
         {
-            if(s[i] == '(') count++;
-            if(s[i] == ')')
+            if(s[i] == '(')
             {
-                maxdep = max(maxdep,count);
-                count--;
+                count++;
+                if(count>maxdep)
+                {
+                    maxdep = count;
+                }
             }
+            else if(s[i] == ')') count--;
         }
 
         return maxdep;
