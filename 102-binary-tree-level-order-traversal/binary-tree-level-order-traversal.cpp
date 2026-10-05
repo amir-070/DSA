@@ -6,7 +6,7 @@ public:
         if(!root) return {};
 
         vector<vector<int>> res;
-        vector<int> temp;
+        vector<int> v;
         queue<TreeNode*> q;
 
         
@@ -15,12 +15,12 @@ public:
 
         while(!q.empty())
         {
-            TreeNode* tmp = q.front();
+            TreeNode* temp = q.front();
             q.pop();
-            if(tmp == NULL)
+            if(temp == NULL)
             {
-                res.push_back(temp);
-                temp.clear();
+                res.push_back(v);
+                v.clear();
                 if(!q.empty())
                 {
                     q.push(NULL);
@@ -28,9 +28,9 @@ public:
             }
             else
             {
-                temp.push_back(tmp->val);
-                if(tmp->left) q.push(tmp->left);
-                if(tmp->right) q.push(tmp->right);
+                v.push_back(temp->val);
+                if(temp->left) q.push(temp->left);
+                if(temp->right) q.push(temp->right);
             }
 
         }
