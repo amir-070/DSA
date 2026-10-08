@@ -69,14 +69,14 @@ public:
             {
                 ans.push_back(curr);
                 curr.clear();
-                alt = false;
+                alt = !alt;
             }
             else
             {
                 reverse(curr.begin(),curr.end());
                 ans.push_back(curr);
                 curr.clear();
-                alt = true;
+                alt = !alt;
             }
 
         }
