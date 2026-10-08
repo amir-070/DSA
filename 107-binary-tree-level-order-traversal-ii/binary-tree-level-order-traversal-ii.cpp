@@ -19,13 +19,13 @@ public:
             else{
                 if (q.empty())
                    {
-                     ans.push_back(curr);
+                     if(!curr.empty()) ans.push_back(curr);
                      curr.clear();
                      break;
                    }
                 else
                 {
-                    ans.push_back(curr);
+                    if(!curr.empty()) ans.push_back(curr);
                     curr.clear();
                     q.push(nullptr);
                 }
@@ -41,7 +41,6 @@ public:
         {
             swap(ans[i++],ans[j--]);
         }
-         ans.pop_back();
         return ans;
     }
 };
