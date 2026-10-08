@@ -9,8 +9,8 @@ public:
         vector<vector<int>> ans;
         vector<int> curr;
 
-        q.push(nullptr);
         q.push(root);
+        q.push(nullptr);
 
         while (!q.empty()) {
             TreeNode* temp = q.front();
@@ -36,11 +36,10 @@ public:
             if(temp->right) q.push(temp->right);
         }
 
-        int i = 0,j = ans.size()-1;
-        while(i<j)
-        {
-            swap(ans[i++],ans[j--]);
-        }
+        int i = 0,j = ans.size()-1; 
+
+        while(i<j) swap(ans[i++],ans[j--]);
+
         return ans;
     }
 };
