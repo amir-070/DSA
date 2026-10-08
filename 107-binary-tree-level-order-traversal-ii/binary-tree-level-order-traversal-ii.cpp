@@ -6,43 +6,42 @@ public:
         if (!root)
             return {};
         queue<TreeNode*> q;
-        stack<TreeNode*> st;
+        vector<vector<int>> ans;
+        vector<int> curr;
+
         q.push(nullptr);
         q.push(root);
 
         while (!q.empty()) {
             TreeNode* temp = q.front();
             q.pop();
-            st.push(temp);
-
-            if (temp == nullptr) {
+            if(temp) curr.push_back(temp->val);
+            else{
                 if (q.empty())
-                    break;
+                   {
+                     ans.push_back(curr);
+                     curr.clear();
+                     break;
+                   }
                 else
+                {
+                    ans.push_back(curr);
+                    curr.clear();
                     q.push(nullptr);
-
+                }
                 continue;
             }
 
-            if(temp->right) q.push(temp->right);
             if(temp->left) q.push(temp->left);
+            if(temp->right) q.push(temp->right);
         }
-        st.pop();
 
-        vector<vector<int>> ans;
-        vector<int> curr;
-        while(!st.empty())
+        int i = 0,j = ans.size()-1;
+        while(i<j)
         {
-            
-            if(st.top() != nullptr) curr.push_back(st.top()->val);
-            else
-            {
-                ans.push_back(curr);
-                curr.clear();
-            }
-            st.pop();
+            swap(ans[i++],ans[j--]);
         }
-
+         ans.pop_back();
         return ans;
     }
 };
